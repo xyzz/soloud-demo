@@ -9,6 +9,7 @@
 
 #include "soloud.h"
 #include "soloud_wav.h"
+#include "soloud_speech.h"
 
 SoLoud::Soloud gSoloud; // SoLoud engine
 SoLoud::Wav gWave;      // One wave file
@@ -25,6 +26,9 @@ int main(void) {
 	gWave.load("app0:/music.ogg"); // Load a wave
 	printf("load\n");
 	gSoloud.play(gWave); // Play the wave
+	SoLoud::Speech sp;
+	sp.setText("Hello world.  You will be assimilated.");
+	gSoloud.play(sp);
 	printf("play\n");
 
 	while (1) {
